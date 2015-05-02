@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Publess.Core.Configuration;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,6 +14,17 @@ namespace Publess.Core.Infrastructure
     /// </summary>
     public class EngineContext
     {
+        #region Utilities
+
+        //protected static IEngine CreateEngineInstance(PublessConfig config)
+        //{
+        //    //if(config!=null )
+
+        //    return new PublessConfig();
+        //}
+
+        #endregion Utilities
+
         #region Methods
 
         // really is the same as using lock(this) on the whole method
@@ -23,7 +36,11 @@ namespace Publess.Core.Infrastructure
         //[MethodImpl(MethodImplOptions.Synchronized)]
         //public static IEngine Initialize(bool forceRecreate)
         //{
-
+        //    if (Singleton<IEngine>.Instance == null || forceRecreate)
+        //    {
+        //        var config = ConfigurationManager.GetSection("PublessConfig") as PublessConfig;
+        //        Singleton<IEngine>.Instance=
+        //    }
         //}
 
         #endregion Methods

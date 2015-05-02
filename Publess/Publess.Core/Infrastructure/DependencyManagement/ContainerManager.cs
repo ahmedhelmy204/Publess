@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Publess.Core.Infrastructure.DependencyManagement
 {
-    class ContainerManager
+    public class ContainerManager
     {
+
     }
 }

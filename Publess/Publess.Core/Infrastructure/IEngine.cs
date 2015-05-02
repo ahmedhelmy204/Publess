@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Publess.Core.Infrastructure
 {
-    interface IEngine
+    /// <summary>
+    /// Classes implementing this interface can serve as a portal for the
+    /// various services composing the Publess engine.
+    /// Edit functionality, Modules and implementations access 
+    /// most Publess functionality through this interface
+    /// </summary>
+     public interface IEngine
     {
     }
 }

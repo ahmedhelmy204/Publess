@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Publess.Core.Infrastructure.DependencyManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,9 @@ namespace Publess.Core.Infrastructure
     /// </summary>
      public interface IEngine
     {
+         /// <summary>
+         /// Container Manager
+         /// </summary>
+         ContainerManager ContainerManager { get; }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Publess.Core
 {
-    class BaseEntity
+    /// <summary>
+    /// Base class for entities
+    /// </summary>
+    public abstract partial class BaseEntity
     {
     }
 }

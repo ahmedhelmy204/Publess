@@ -25,7 +25,21 @@ namespace Publess.Core.Configuration
         {
             var config = new PublessConfig();
 
+            var engineNode = section.SelectSingleNode("Engine");
+            if (engineNode != null && engineNode.Attributes != null)
+            {
+                var attribute = engineNode.Attributes["Type"];
+                if (attribute != null)
+                    config.EngineType = attribute.Value;
+            }
+
             return config;
         }
+
+        /// <summary>
+        /// A custom <see cref="IEngine"/> to manage the application 
+        /// instead of the default
+        /// </summary>
+        public string EngineType { get; set; }
     }
 }

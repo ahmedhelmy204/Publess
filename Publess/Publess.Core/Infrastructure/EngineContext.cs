@@ -16,12 +16,20 @@ namespace Publess.Core.Infrastructure
     {
         #region Utilities
 
-        //protected static IEngine CreateEngineInstance(PublessConfig config)
-        //{
-        //    //if(config!=null )
+        protected static IEngine CreateEngineInstance(PublessConfig config)
+        {
+            if (config != null &&!string.IsNullOrEmpty(config.EngineType) )
+            {
+                var engineType = Type.GetType(config.EngineType);
+                if (engineType == null)
+                    throw new ConfigurationErrorsException("The type '" + config.EngineType + "' could not be found. Please check the configuration at /configuration/publess/engine[@engineType] or check for missing assemblies.");
+                if (!typeof(IEngine).IsAssignableFrom(engineType))
+                    throw new ConfigurationErrorsException("The type '" + config.EngineType + "' doesn't implement 'Publess.Core.Infrastructure.IEngine' and cannot be configured in /configuration/publess/engine[@engineType] for that purpose.");
+                return Activator.CreateInstance(engineType) as IEngine;
+            }
 
-        //    return new PublessConfig();
-        //}
+            return new PublessEngine();
+        }
 
         #endregion Utilities
 
@@ -33,15 +41,17 @@ namespace Publess.Core.Infrastructure
         /// </summary>
         /// <param name="forceRecreate">Creates a new factory instance even though the factory has been previously initialized.</param>
         /// <returns></returns>
-        //[MethodImpl(MethodImplOptions.Synchronized)]
-        //public static IEngine Initialize(bool forceRecreate)
-        //{
-        //    if (Singleton<IEngine>.Instance == null || forceRecreate)
-        //    {
-        //        var config = ConfigurationManager.GetSection("PublessConfig") as PublessConfig;
-        //        Singleton<IEngine>.Instance=
-        //    }
-        //}
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public static IEngine Initialize(bool forceRecreate)
+        {
+            if (Singleton<IEngine>.Instance == null || forceRecreate)
+            {
+                var config = ConfigurationManager.GetSection("PublessConfig") as PublessConfig;
+                Singleton<IEngine>.Instance = CreateEngineInstance(config);
+                Singleton<IEngine>.Instance.Initialize(config);
+            }
+            return Singleton<IEngine>.Instance;
+        }
 
         #endregion Methods
     }

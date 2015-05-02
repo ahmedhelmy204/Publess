@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Publess.Core.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,8 @@ namespace Publess.Web
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            // Initialize engine context
+            EngineContext.Initialize(false);
         }
 
         protected void Session_Start(object sender, EventArgs e)

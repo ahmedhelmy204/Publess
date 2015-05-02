@@ -1,4 +1,5 @@
-﻿using Publess.Core.Infrastructure.DependencyManagement;
+﻿using Publess.Core.Configuration;
+using Publess.Core.Infrastructure.DependencyManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,11 @@ namespace Publess.Core.Infrastructure
          /// Container Manager
          /// </summary>
          ContainerManager ContainerManager { get; }
+
+         /// <summary>
+         /// Initialize components and plugins in the publess environment
+         /// </summary>
+         /// <param name="config">Config</param>
+         void Initialize(PublessConfig config);
     }
 }

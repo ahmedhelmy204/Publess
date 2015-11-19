@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{08D31DA8-07FA-4E85-9F1A-B044EECAB85E}"
 EndProject
@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29DB23
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publess.Data", "Publess.Data\Publess.Data.csproj", "{F10F5449-3B97-41A3-BE51-0B86073C1D84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publess.Service", "Publess.Service\Publess.Service.csproj", "{342E9A79-D571-4921-81ED-67DCC5364428}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{3D8D2FA0-E9F1-4A39-A05B-EF894DBD6A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D8D2FA0-E9F1-4A39-A05B-EF894DBD6A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D8D2FA0-E9F1-4A39-A05B-EF894DBD6A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10F5449-3B97-41A3-BE51-0B86073C1D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10F5449-3B97-41A3-BE51-0B86073C1D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10F5449-3B97-41A3-BE51-0B86073C1D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10F5449-3B97-41A3-BE51-0B86073C1D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{342E9A79-D571-4921-81ED-67DCC5364428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{342E9A79-D571-4921-81ED-67DCC5364428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{342E9A79-D571-4921-81ED-67DCC5364428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{342E9A79-D571-4921-81ED-67DCC5364428}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +58,7 @@ Global
 		{96800161-600C-4AC2-96B3-981A15ECD750} = {08D31DA8-07FA-4E85-9F1A-B044EECAB85E}
 		{A18E8279-CD04-46F4-87DE-8956099A4598} = {5CDA65B3-2BCA-4E7E-A3CA-B6C295171036}
 		{3D8D2FA0-E9F1-4A39-A05B-EF894DBD6A49} = {5CDA65B3-2BCA-4E7E-A3CA-B6C295171036}
+		{F10F5449-3B97-41A3-BE51-0B86073C1D84} = {5CDA65B3-2BCA-4E7E-A3CA-B6C295171036}
+		{342E9A79-D571-4921-81ED-67DCC5364428} = {5CDA65B3-2BCA-4E7E-A3CA-B6C295171036}
 	EndGlobalSection
 EndGlobal

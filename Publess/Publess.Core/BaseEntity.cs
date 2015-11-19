@@ -11,5 +11,7 @@ namespace Publess.Core
     /// </summary>
     public abstract partial class BaseEntity
     {
+        public DateTime InsertedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; }
     }
 }

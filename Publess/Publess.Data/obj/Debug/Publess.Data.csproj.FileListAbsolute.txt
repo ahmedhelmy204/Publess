@@ -1,0 +1,12 @@
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\Publess.Data.dll.config
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\Publess.Data.dll
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\Publess.Data.pdb
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\EntityFramework.dll
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\Publess.Core.dll
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\Publess.Core.pdb
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\EntityFramework.xml
+D:\Work\Publess\Publess\Publess\Publess.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Publess\Publess\Publess\Publess.Data\obj\Debug\Publess.Data.csprojResolveAssemblyReference.cache
+D:\Work\Publess\Publess\Publess\Publess.Data\obj\Debug\Publess.Data.dll
+D:\Work\Publess\Publess\Publess\Publess.Data\obj\Debug\Publess.Data.pdb

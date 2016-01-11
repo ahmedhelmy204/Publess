@@ -51,14 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Configuration\PublessConfig.cs" />
-    <Compile Include="Data\Post.cs" />
-    <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
-    <Compile Include="Infrastructure\EngineContext.cs" />
-    <Compile Include="Infrastructure\IEngine.cs" />
-    <Compile Include="Infrastructure\PublessEngine.cs" />
-    <Compile Include="Infrastructure\Singleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

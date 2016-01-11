@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../Publess.Data/Publess.Data.csproj",
+      "bin": {
+        "assembly": "../../Publess.Data/obj/{configuration}/Publess.Data.dll",
+        "pdb": "../../Publess.Data/obj/{configuration}/Publess.Data.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3",
+        "Publess.Core": "1.0.0-*"
+      }
+    }
+  }
+}

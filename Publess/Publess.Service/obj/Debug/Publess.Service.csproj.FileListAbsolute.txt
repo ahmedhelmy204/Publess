@@ -7,3 +7,5 @@ D:\Work\Publess\Publess\Publess\Publess.Service\bin\Debug\Publess.Data.pdb
 D:\Work\Publess\Publess\Publess\Publess.Service\obj\Debug\Publess.Service.csprojResolveAssemblyReference.cache
 D:\Work\Publess\Publess\Publess\Publess.Service\obj\Debug\Publess.Service.dll
 D:\Work\Publess\Publess\Publess\Publess.Service\obj\Debug\Publess.Service.pdb
+D:\Work\Publess\Publess\Publess\Publess.Service\bin\Debug\EntityFramework.dll
+D:\Work\Publess\Publess\Publess\Publess.Service\bin\Debug\EntityFramework.xml

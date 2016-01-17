@@ -10,6 +10,16 @@
       "dependencies": {
         "Unity": "3.5.1404.0"
       }
+    },
+    "net45": {
+      "wrappedProject": "../../Publess.Core/Publess.Core.csproj",
+      "bin": {
+        "assembly": "../../Publess.Core/obj/{configuration}/Publess.Core.dll",
+        "pdb": "../../Publess.Core/obj/{configuration}/Publess.Core.pdb"
+      },
+      "dependencies": {
+        "Unity": "3.5.1404.0"
+      }
     }
   }
 }

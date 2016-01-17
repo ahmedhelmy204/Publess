@@ -41,8 +41,10 @@ namespace <#=code.EscapeNamespace(codeNamespace)#>
 
 #>
 using System;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using Microsoft.Data.Entity.Infrastructure;
+using Microsoft.Data.Entity;
 
 using Publess.Core.Data;
 <#
@@ -55,16 +57,16 @@ using System.Linq;
 }
 #>
 
-<#=Accessibility.ForType(container)#> partial class <#=code.Escape(container)#> : DbContext, IDbPublessContext
+<#=Accessibility.ForType(container)#> partial class <#=code.Escape(container)#> : DbContext, IPublessDbContext
 {
-    public <#=code.Escape(container)#>()
-        : base("name=<#=container.Name#>")
-    {
+    //public <#=code.Escape(container)#>()
+    //    : base("name=<#=container.Name#>")
+    //{
 <#
 if (!loader.IsLazyLoadingEnabled(container))
 {
 #>
-        this.Configuration.LazyLoadingEnabled = false;
+        //this.Configuration.LazyLoadingEnabled = false;
 <#
 }
 
@@ -80,17 +82,33 @@ foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
     }
 }
 #>
-    }
+    //}
 
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+	//public <#=code.Escape(container)#>(IServiceProvider serviceProvider)
+	//	: base(serviceProvider)
+	//{
+	
+	//}
+
+	public <#=code.Escape(container)#>(IServiceProvider serviceProvider, DbContextOptions options)
+	{
+	}
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         throw new UnintentionalCodeFirstException();
     }
 
-	IDbSet<TEntity> IDbContext.Set<TEntity>()
-    {
-        return base.Set<TEntity>();
-    }
+	 System.Data.Entity.IDbSet<TEntity> IDbContext.Set<TEntity>()
+     {
+         throw new NotImplementedException();
+     }
+
+	 
+     //protected override void OnConfiguring(DbContextOptionsBuilder options)
+     //{
+     //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
+     //}
 
 <#
     foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
@@ -315,7 +333,7 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} virtual DbSet<{1}> {2} {{ get; set; }}",
+            "{0} virtual System.Data.Entity.IDbSet<{1}> {2} {{ get; set; }}",
             Accessibility.ForReadOnlyProperty(entitySet),
             _typeMapper.GetTypeName(entitySet.ElementType),
             _code.Escape(entitySet));

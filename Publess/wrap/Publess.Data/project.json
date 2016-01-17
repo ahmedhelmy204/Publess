@@ -9,7 +9,23 @@
       },
       "dependencies": {
         "EntityFramework": "6.1.3",
-        "Publess.Core": "1.0.0-*"
+        "Publess.Core": "1.0.0-*",
+        "EntityFramework.SqlServer": "1.0.0-*",
+        "EntityFramework.Core": "7.0.0-rc1-final",
+        "Ix-Async": "1.2.5",
+        "Microsoft.Extensions.Caching.Abstractions": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Caching.Memory": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Configuration.Binder": "1.0.0-rc1-final",
+        "Microsoft.Extensions.DependencyInjection": "1.0.0-rc1-final",
+        "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+        "Microsoft.Extensions.OptionsModel": "1.0.0-rc1-final",
+        "Microsoft.Extensions.Primitives": "1.0.0-rc1-final",
+        "Remotion.Linq": "2.0.1",
+        "System.Collections.Immutable": "1.1.36"
       }
     }
   }

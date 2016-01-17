@@ -10,28 +10,54 @@
 namespace Publess.Data.Models
 {
     using System;
-    using System.Data.Entity;
+    //using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using Microsoft.Data.Entity.Infrastructure;
+    using Microsoft.Data.Entity;
+
     using Publess.Core.Data;
-    
-    public partial class PublessEntities : DbContext, IDbPublessContext
+
+
+
+    using Microsoft.Extensions.Configuration;
+
+
+
+    public partial class PublessEntities : DbContext, IPublessDbContext
     {
-        public PublessEntities()
-            : base("name=PublessEntities")
+        //public PublessEntities()
+        //    : base("name=PublessEntities")
+        //{
+        //}
+
+        //public PublessEntities(IServiceProvider serviceProvider)
+        //	: base(serviceProvider)
+        //{
+
+        //}
+
+        public PublessEntities(IServiceProvider serviceProvider, DbContextOptions options)
+            : base(serviceProvider, options)
         {
+            //options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-    	IDbSet<TEntity> IDbContext.Set<TEntity>()
+
+        System.Data.Entity.IDbSet<TEntity> IDbContext.Set<TEntity>()
         {
-            return base.Set<TEntity>();
+            throw new NotImplementedException();
         }
-    
-        public virtual DbSet<Post> Posts { get; set; }
+
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //{
+        //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
+        //}
+
+        public virtual System.Data.Entity.IDbSet<Post> Posts { get; set; }
     }
 }

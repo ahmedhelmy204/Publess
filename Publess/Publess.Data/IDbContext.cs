@@ -24,5 +24,8 @@ namespace Publess.Data
         int SaveChanges();
     }
 
-    public interface IDbPublessContext : IDbContext { }
+    public interface IPublessDbContext : IDbContext
+    {
+       
+    }
 }

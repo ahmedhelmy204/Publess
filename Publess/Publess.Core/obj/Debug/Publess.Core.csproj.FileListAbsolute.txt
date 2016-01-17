@@ -6,6 +6,5 @@ D:\Work\Publess\Publess\Publess\Publess.Core\bin\Debug\Microsoft.Practices.Unity
 D:\Work\Publess\Publess\Publess\Publess.Core\bin\Debug\Microsoft.Practices.Unity.xml
 D:\Work\Publess\Publess\Publess\Publess.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 D:\Work\Publess\Publess\Publess\Publess.Core\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
-D:\Work\Publess\Publess\Publess\Publess.Core\obj\Debug\Publess.Core.csprojResolveAssemblyReference.cache
 D:\Work\Publess\Publess\Publess\Publess.Core\obj\Debug\Publess.Core.dll
 D:\Work\Publess\Publess\Publess\Publess.Core\obj\Debug\Publess.Core.pdb

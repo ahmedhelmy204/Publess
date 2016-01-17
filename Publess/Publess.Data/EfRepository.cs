@@ -41,7 +41,7 @@ namespace Publess.Data
 
     public partial class EfPublessRepository<T> : EfRepository<T>, IPublessRepository<T> where T : BaseEntity
     {
-        public EfPublessRepository(IDbPublessContext context)
+        public EfPublessRepository(IPublessDbContext context)
             : base(context)
         {
 

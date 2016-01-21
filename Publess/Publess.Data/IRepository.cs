@@ -10,6 +10,8 @@ namespace Publess.Data
     public partial interface IRepository<T> where T : BaseEntity
     {
         IQueryable<T> Table { get; }
+
+        void Insert(T entity);
     }
 
     public partial interface IPublessRepository<T> : IRepository<T> where T : BaseEntity { }

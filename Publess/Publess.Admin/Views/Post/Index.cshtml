@@ -1,5 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model IEnumerable<Publess.Core.Data.Post>
+
+<a asp-controller="Post" asp-action="CreateEdit">Add</a>
+
+<table>
+    <tr><th>PostTitle</th></tr>
+
+@foreach (var post in Model)
+{
+    <tr>
+        <td>@post.PostTitle</td>
+    </tr>
+
 }
+</table>

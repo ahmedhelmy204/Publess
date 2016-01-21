@@ -10,5 +10,7 @@ namespace Publess.Service.Posts
     public interface IPostService
     {
         IQueryable<Post> GetPosts();
+
+        void InsertPost(Post post);
     }
 }

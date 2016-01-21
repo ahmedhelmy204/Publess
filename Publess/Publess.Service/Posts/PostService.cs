@@ -21,5 +21,10 @@ namespace Publess.Service.Posts
         {
             return _postRepository.Table;
         }
+
+        public void InsertPost(Post post)
+        {
+            _postRepository.Insert(post);
+        }
     }
 }

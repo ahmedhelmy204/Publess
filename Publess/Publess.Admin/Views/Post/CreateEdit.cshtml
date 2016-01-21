@@ -1,0 +1,11 @@
+﻿@model Publess.Core.Data.Post
+
+<form asp-controller="Post" asp-action="CreateEdit" method="post">
+    <label asp-for="PostTitle"></label>
+    <input asp-for="PostTitle" type="text" />
+
+    <label asp-for="PostBodyText"></label>
+    <input asp-for="PostBodyText" type="text" />
+
+    <button type="submit">Save</button>
+</form>

@@ -28,7 +28,10 @@
 
   "frameworks": {
     "dnx451": {
-      "dependencies": {      }
+      "dependencies": {
+        "Publess.Core": "1.0.0-*",
+        "Publess.Service": "1.0.0-*"
+      }
     } 
   },
 

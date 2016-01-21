@@ -41,10 +41,8 @@ namespace <#=code.EscapeNamespace(codeNamespace)#>
 
 #>
 using System;
-//using System.Data.Entity;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using Microsoft.Data.Entity.Infrastructure;
-using Microsoft.Data.Entity;
 
 using Publess.Core.Data;
 <#
@@ -84,24 +82,20 @@ foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
 #>
     //}
 
-	//public <#=code.Escape(container)#>(IServiceProvider serviceProvider)
-	//	: base(serviceProvider)
-	//{
-	
-	//}
-
-	public <#=code.Escape(container)#>(IServiceProvider serviceProvider, DbContextOptions options)
-	{
-	}
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+	public <#=code.Escape(container)#>(string nameOrConnectionString)
+            :base(nameOrConnectionString:nameOrConnectionString)
     {
-        throw new UnintentionalCodeFirstException();
+
     }
 
-	 System.Data.Entity.IDbSet<TEntity> IDbContext.Set<TEntity>()
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+        //throw new UnintentionalCodeFirstException();
+    //}
+
+	 IDbSet<TEntity> IDbContext.Set<TEntity>()
      {
-         throw new NotImplementedException();
+         return base.Set<TEntity>();
      }
 
 	 
@@ -333,7 +327,7 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} virtual System.Data.Entity.IDbSet<{1}> {2} {{ get; set; }}",
+            "{0} virtual IDbSet<{1}> {2} {{ get; set; }}",
             Accessibility.ForReadOnlyProperty(entitySet),
             _typeMapper.GetTypeName(entitySet.ElementType),
             _code.Escape(entitySet));

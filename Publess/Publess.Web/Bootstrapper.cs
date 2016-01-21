@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Publess.Data;
 using Publess.Data.Models;
 using Publess.Service.Posts;
@@ -11,11 +12,17 @@ namespace Publess.Web
 {
     public static class Bootstrapper
     {
-        public static void Initialise(IServiceCollection services)
+        public static void Initialise(IServiceCollection services, IConfigurationRoot Configuration)
         {
-            services.AddSingleton<IDbContext, PublessEntities>();
+            //Instance – a specific instance is given all the time.You are responsible for its initial creation.
+            //Transient – a new instance is created every time.
+            //Singleton – a single instance is created and it acts like a singleton.
+            //Scoped – a single instance is created inside the current scope.It is equivalent to Singleton in the current scope.
 
-            services.AddSingleton(typeof(IRepository<>), typeof(EfRepository<>));
+            //services.AddSingleton<IDbContext, PublessEntities>();
+            services.AddSingleton(typeof(IPublessDbContext), context => new PublessEntities(Configuration["Data:PublessConnectionString"]));
+
+            services.AddSingleton(typeof(IPublessRepository<>), typeof(EfPublessRepository<>));
 
             services.AddSingleton<IPostService, PostService>();
         }

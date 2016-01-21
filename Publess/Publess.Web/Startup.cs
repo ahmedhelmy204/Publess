@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 //using Publess.Data.Models;
-//using Microsoft.Data.Entity;
 
 namespace Publess.Web
 {
@@ -46,7 +45,7 @@ namespace Publess.Web
             //        options.UseSqlServer(Configuration["Data:ConnectionString"]);
             //    });
 
-            Bootstrapper.Initialise(services);
+            Bootstrapper.Initialise(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

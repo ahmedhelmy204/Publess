@@ -11,59 +11,39 @@ namespace Publess.Data.Models
 {
     using System;
     using System.Data.Entity;
-    //using System.Data.Entity.Infrastructure;
-    //using Microsoft.Data.Entity.Infrastructure;
-    //using Microsoft.Data.Entity;
-
+    using System.Data.Entity.Infrastructure;
+    
     using Publess.Core.Data;
-
-
-
-    //using Microsoft.Extensions.Configuration;
-
-
-
+    
     public partial class PublessEntities : DbContext, IPublessDbContext
     {
-        //    //public PublessEntities()
-        //    //    : base("name=PublessEntities")
-        //    //{
-        //    //}
-
-        //    //public PublessEntities(IServiceProvider serviceProvider)
-        //    //	: base(serviceProvider)
-        //    //{
-
-        //    //}
-
-        //    public PublessEntities(IServiceProvider serviceProvider, DbContextOptions options)
-        //        : base(serviceProvider, options)
-        //    {
-        //        //options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
-        //    }
-
-        public PublessEntities(string nameOrConnectionString)
-            :base(nameOrConnectionString:nameOrConnectionString)
-        {
-
-        }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //public PublessEntities()
+        //    : base("name=PublessEntities")
         //{
-        //    throw new UnintentionalCodeFirstException();
         //}
-
-        IDbSet<TEntity> IDbContext.Set<TEntity>()
+    
+    	public PublessEntities(string nameOrConnectionString)
+                :base(nameOrConnectionString:nameOrConnectionString)
         {
-            return base.Set<TEntity>();
+    
         }
-
-
-        //    //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //    //{
-        //    //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
-        //    //}
-
+    
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+            //throw new UnintentionalCodeFirstException();
+        //}
+    
+    	 IDbSet<TEntity> IDbContext.Set<TEntity>()
+         {
+             return base.Set<TEntity>();
+         }
+    
+    	 
+         //protected override void OnConfiguring(DbContextOptionsBuilder options)
+         //{
+         //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
+         //}
+    
         public virtual IDbSet<Post> Posts { get; set; }
     }
 }

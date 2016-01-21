@@ -14,7 +14,7 @@
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
     "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.FileProviderExtensions" : "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
@@ -28,11 +28,8 @@
 
   "frameworks": {
     "dnx451": {
-      "dependencies": {
-        "Publess.Service": "1.0.0-*"
-      }
-    },
-    "dnxcore50": { }
+      "dependencies": {      }
+    } 
   },
 
   "exclude": [

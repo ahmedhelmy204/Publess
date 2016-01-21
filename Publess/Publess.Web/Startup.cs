@@ -45,6 +45,8 @@ namespace Publess.Web
             //    {
             //        options.UseSqlServer(Configuration["Data:ConnectionString"]);
             //    });
+
+            Bootstrapper.Initialise(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

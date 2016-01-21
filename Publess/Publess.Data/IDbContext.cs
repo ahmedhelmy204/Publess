@@ -1,7 +1,7 @@
 ﻿using Publess.Core;
 using System;
 using System.Collections.Generic;
-//using System.Data.Entity;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ namespace Publess.Data
         /// </summary>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <returns>DbSet</returns>
-        //IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
+        IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
 
         /// <summary>
         /// Save changes

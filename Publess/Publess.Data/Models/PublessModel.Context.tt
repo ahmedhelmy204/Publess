@@ -44,7 +44,7 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-using Publess.Core.Data;
+using Publess.Core.Domain.Posts;
 <#
 if (container.FunctionImports.Any())
 {

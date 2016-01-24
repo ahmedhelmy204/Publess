@@ -13,7 +13,7 @@ namespace Publess.Data.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    using Publess.Core.Data;
+    using Publess.Core.Domain.Posts;
     
     public partial class PublessEntities : DbContext, IPublessDbContext
     {

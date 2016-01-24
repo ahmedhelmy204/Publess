@@ -1613,6 +1613,15 @@
           "Publess.Data": "1.0.0"
         }
       },
+      "Publess.Web.Framework/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "Publess.Service": "1.0.0"
+        }
+      },
       "Remotion.Linq/2.0.1": {
         "type": "package",
         "compile": {
@@ -3459,6 +3468,15 @@
         "dependencies": {
           "Publess.Core": "1.0.0",
           "Publess.Data": "1.0.0"
+        }
+      },
+      "Publess.Web.Framework/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "Publess.Service": "1.0.0"
         }
       },
       "Remotion.Linq/2.0.1": {
@@ -5309,6 +5327,15 @@
           "Publess.Data": "1.0.0"
         }
       },
+      "Publess.Web.Framework/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
+          "Publess.Service": "1.0.0"
+        }
+      },
       "Remotion.Linq/2.0.1": {
         "type": "package",
         "compile": {
@@ -5556,6 +5583,10 @@
     "Publess.Service/1.0.0": {
       "type": "project",
       "path": "../wrap/Publess.Service/project.json"
+    },
+    "Publess.Web.Framework/1.0.0": {
+      "type": "project",
+      "path": "../Publess.Web.Framework/project.json"
     },
     "EntityFramework/6.1.3": {
       "type": "package",
@@ -7639,7 +7670,8 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
+      "Publess.Web.Framework >= 1.0.0-*"
     ],
     "DNX,Version=v4.5.1": [
       "Publess.Core >= 1.0.0-*",

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Publess.Core.Data;
+using Publess.Core.Domain.Posts;
 using Publess.Data;
 
 namespace Publess.Service.Posts

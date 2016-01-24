@@ -1,4 +1,4 @@
-﻿using Publess.Core.Data;
+﻿using Publess.Core.Domain.Posts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

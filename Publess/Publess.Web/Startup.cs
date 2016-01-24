@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Publess.Web.Framework;
 //using Publess.Data.Models;
 
 namespace Publess.Web
@@ -45,7 +46,7 @@ namespace Publess.Web
             //        options.UseSqlServer(Configuration["Data:ConnectionString"]);
             //    });
 
-            Bootstrapper.Initialise(services, Configuration);
+            DependecyRegistrar.Register(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

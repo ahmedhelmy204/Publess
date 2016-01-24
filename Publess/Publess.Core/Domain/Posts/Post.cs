@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Publess.Core.Data
+namespace Publess.Core.Domain.Posts
 {
     public partial class Post : BaseEntity
     {

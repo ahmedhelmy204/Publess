@@ -146,7 +146,6 @@
       <Name>Publess.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\PublessModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -76,12 +76,12 @@ namespace Publess.Data.Models
 
         static string CreateConnectionString(string metaData, string connectionString)
         {
-            const string appName = "EntityFramework";
+            //const string appName = "EntityFramework";
             const string providerName = "System.Data.SqlClient";
 
             SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
             sqlBuilder.ConnectionString = connectionString;
-            sqlBuilder.ApplicationName = appName;
+            //sqlBuilder.ApplicationName = appName;
 
             EntityConnectionStringBuilder efBuilder = new EntityConnectionStringBuilder();
             efBuilder.Metadata = metaData;

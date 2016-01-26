@@ -12,9 +12,12 @@ namespace Publess.Data.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     using Publess.Core.Domain.Posts;
-    
+    using Publess.Core.Domain.Users;
+    using System.Data.Entity.Core.EntityClient;
+    using System.Reflection;
+    using System.Data.Common;
     public partial class PublessEntities : DbContext, IPublessDbContext
     {
         //public PublessEntities()
@@ -25,25 +28,64 @@ namespace Publess.Data.Models
     	public PublessEntities(string nameOrConnectionString)
                 :base(nameOrConnectionString:nameOrConnectionString)
         {
-    
         }
-    
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+      
+
+        //public PublessEntities(string nameOrConnectionString,bool hasConnectionString)
         //{
-            //throw new UnintentionalCodeFirstException();
+        //    //new  PublessEntities(nameOrConnectionString);
+
+        //    Type type = typeof(PublessEntities);
+        //    ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
+
+        //    var entityBuilder = new EntityConnectionStringBuilder();
+
+        //    // use your ADO.NET connection string
+        //    entityBuilder.ProviderConnectionString = nameOrConnectionString;
+
+        //    entityBuilder.Provider = "System.Data.SqlClient";
+
+        //    // Set the Metadata location.
+        //    entityBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
+
+        //    string conn = @"metadata=res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=Publess;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework&quot;";
+
+        //    ctor.Invoke(new object[] { conn });
         //}
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
     
     	 IDbSet<TEntity> IDbContext.Set<TEntity>()
          {
              return base.Set<TEntity>();
          }
-    
-    	 
-         //protected override void OnConfiguring(DbContextOptionsBuilder options)
-         //{
-         //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
-         //}
-    
+        
+        //public static PublessEntities Create(string providerConnectionString)
+        //{
+        //    var entityBuilder = new EntityConnectionStringBuilder();
+
+        //    // use your ADO.NET connection string
+        //    entityBuilder.ProviderConnectionString = "provider connection string=\"data source=.;initial catalog=Publess;user id=sa;password=123456;MultipleActiveResultSets=True\"";
+
+        //    entityBuilder.Provider = "System.Data.SqlClient";
+
+        //    // Set the Metadata location.
+        //    entityBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
+
+        //    return new PublessEntities(entityBuilder.ConnectionString);
+        //}
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //{
+        //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
+        //}
+
         public virtual IDbSet<Post> Posts { get; set; }
+        public virtual IDbSet<User> Users { get; set; }
     }
 }

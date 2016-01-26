@@ -9,6 +9,9 @@
     "net451": {
       "dependencies": {
         "Publess.Service": "1.0.0-*"
+      },
+      "frameworkAssemblies": {
+        "System.Data": "4.0.0.0"
       }
     }
   },

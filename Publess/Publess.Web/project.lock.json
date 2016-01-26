@@ -1620,7 +1620,10 @@
           "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
           "Publess.Service": "1.0.0"
-        }
+        },
+        "frameworkAssemblies": [
+          "System.Data"
+        ]
       },
       "Remotion.Linq/2.0.1": {
         "type": "package",
@@ -3477,7 +3480,10 @@
           "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
           "Publess.Service": "1.0.0"
-        }
+        },
+        "frameworkAssemblies": [
+          "System.Data"
+        ]
       },
       "Remotion.Linq/2.0.1": {
         "type": "package",
@@ -5334,7 +5340,10 @@
           "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc1-final",
           "Publess.Service": "1.0.0"
-        }
+        },
+        "frameworkAssemblies": [
+          "System.Data"
+        ]
       },
       "Remotion.Linq/2.0.1": {
         "type": "package",

@@ -45,6 +45,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
 using Publess.Core.Domain.Posts;
+using Publess.Core.Domain.Users;
 <#
 if (container.FunctionImports.Any())
 {
@@ -88,10 +89,10 @@ foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
 
     }
 
-    //protected override void OnModelCreating(ModelBuilder modelBuilder)
-    //{
-        //throw new UnintentionalCodeFirstException();
-    //}
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
 
 	 IDbSet<TEntity> IDbContext.Set<TEntity>()
      {

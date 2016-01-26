@@ -26,6 +26,6 @@ namespace Publess.Data
 
     public interface IPublessDbContext : IDbContext
     {
-       
+        //IPublessDbContext Create(string providerConnectionString);
     }
 }

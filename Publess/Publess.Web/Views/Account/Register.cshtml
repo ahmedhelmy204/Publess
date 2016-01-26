@@ -1,0 +1,14 @@
+﻿@model Publess.Web.Models.Account.RegisterModel
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <label asp-for="Username"></label>
+    <input asp-for="Username" type="text" />
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" type="text" />
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" type="password" />
+
+    <button type="submit">Register</button>
+</form>

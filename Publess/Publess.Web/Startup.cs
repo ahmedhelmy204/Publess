@@ -73,6 +73,12 @@ namespace Publess.Web
 
             app.UseStaticFiles();
 
+            ConfigureRoutes(app);
+        }
+
+        public void ConfigureRoutes(IApplicationBuilder app)
+        {
+            // Configure ASP.NET MVC6 Routes
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

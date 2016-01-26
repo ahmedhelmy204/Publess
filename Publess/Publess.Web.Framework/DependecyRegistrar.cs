@@ -34,39 +34,14 @@ namespace Publess.Web.Framework
             //services.AddSingleton(typeof(IPublessDbContext), context => new PublessEntities(Configuration["Data:PublessConnectionString"]));
 
 
-            string metaData = "res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
-            string dataSource = ".";
-            string initialCatalog = "Publess";
+           // string metaData = "res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
 
-
-
-
-            services.AddSingleton(typeof(IPublessDbContext), context => new PublessEntities(CreateConnectionString(metaData, dataSource, initialCatalog)));
+            services.AddSingleton(typeof(IPublessDbContext), context =>  PublessEntities.Create(Configuration["Data:PublessConnectionString"]));
 
             services.AddSingleton(typeof(IPublessRepository<>), typeof(EfPublessRepository<>));
 
             services.AddSingleton<IPostService, PostService>();
             services.AddSingleton<IUserService, UserService>();
-        }
-
-        public static string CreateConnectionString(string metaData, string dataSource, string initialCatalog)
-        {
-            const string appName = "EntityFramework";
-            const string providerName = "System.Data.SqlClient";
-
-            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
-            sqlBuilder.DataSource = dataSource;
-            sqlBuilder.InitialCatalog = initialCatalog;
-            sqlBuilder.MultipleActiveResultSets = true;
-            sqlBuilder.IntegratedSecurity = true;
-            sqlBuilder.ApplicationName = appName;
-
-            EntityConnectionStringBuilder efBuilder = new EntityConnectionStringBuilder();
-            efBuilder.Metadata = metaData;
-            efBuilder.Provider = providerName;
-            efBuilder.ProviderConnectionString = sqlBuilder.ConnectionString;
-
-            return efBuilder.ConnectionString;
         }
     }
 }

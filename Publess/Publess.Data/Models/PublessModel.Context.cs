@@ -18,6 +18,7 @@ namespace Publess.Data.Models
     using System.Data.Entity.Core.EntityClient;
     using System.Reflection;
     using System.Data.Common;
+    using System.Data.SqlClient;
     public partial class PublessEntities : DbContext, IPublessDbContext
     {
         //public PublessEntities()
@@ -65,20 +66,30 @@ namespace Publess.Data.Models
              return base.Set<TEntity>();
          }
         
-        //public static PublessEntities Create(string providerConnectionString)
-        //{
-        //    var entityBuilder = new EntityConnectionStringBuilder();
+        public static PublessEntities Create(string connectionString)
+        {
+            // Set the Metadata location.
+            string metaData = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
 
-        //    // use your ADO.NET connection string
-        //    entityBuilder.ProviderConnectionString = "provider connection string=\"data source=.;initial catalog=Publess;user id=sa;password=123456;MultipleActiveResultSets=True\"";
+            return new PublessEntities(CreateConnectionString(metaData, connectionString));
+        }
 
-        //    entityBuilder.Provider = "System.Data.SqlClient";
+        static string CreateConnectionString(string metaData, string connectionString)
+        {
+            const string appName = "EntityFramework";
+            const string providerName = "System.Data.SqlClient";
 
-        //    // Set the Metadata location.
-        //    entityBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
+            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+            sqlBuilder.ConnectionString = connectionString;
+            sqlBuilder.ApplicationName = appName;
 
-        //    return new PublessEntities(entityBuilder.ConnectionString);
-        //}
+            EntityConnectionStringBuilder efBuilder = new EntityConnectionStringBuilder();
+            efBuilder.Metadata = metaData;
+            efBuilder.Provider = providerName;
+            efBuilder.ProviderConnectionString = sqlBuilder.ConnectionString;
+
+            return efBuilder.ConnectionString;
+        }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder options)
         //{

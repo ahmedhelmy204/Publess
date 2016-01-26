@@ -31,8 +31,6 @@ namespace Publess.Data.Models
         {
         }
 
-      
-
         //public PublessEntities(string nameOrConnectionString,bool hasConnectionString)
         //{
         //    //new  PublessEntities(nameOrConnectionString);
@@ -55,7 +53,6 @@ namespace Publess.Data.Models
         //    ctor.Invoke(new object[] { conn });
         //}
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -68,27 +65,15 @@ namespace Publess.Data.Models
         
         public static PublessEntities Create(string connectionString)
         {
-            // Set the Metadata location.
-            string metaData = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
-
-            return new PublessEntities(CreateConnectionString(metaData, connectionString));
-        }
-
-        static string CreateConnectionString(string metaData, string connectionString)
-        {
-            //const string appName = "EntityFramework";
-            const string providerName = "System.Data.SqlClient";
-
-            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
-            sqlBuilder.ConnectionString = connectionString;
-            //sqlBuilder.ApplicationName = appName;
+            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder(connectionString);
 
             EntityConnectionStringBuilder efBuilder = new EntityConnectionStringBuilder();
-            efBuilder.Metadata = metaData;
-            efBuilder.Provider = providerName;
+            // Set the Metadata location.
+            efBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
+            efBuilder.Provider = "System.Data.SqlClient";
             efBuilder.ProviderConnectionString = sqlBuilder.ConnectionString;
 
-            return efBuilder.ConnectionString;
+            return new PublessEntities(efBuilder.ConnectionString);
         }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder options)

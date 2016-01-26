@@ -33,9 +33,6 @@ namespace Publess.Web.Framework
             //services.AddSingleton<IDbContext, PublessEntities>();
             //services.AddSingleton(typeof(IPublessDbContext), context => new PublessEntities(Configuration["Data:PublessConnectionString"]));
 
-
-           // string metaData = "res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
-
             services.AddSingleton(typeof(IPublessDbContext), context =>  PublessEntities.Create(Configuration["Data:PublessConnectionString"]));
 
             services.AddSingleton(typeof(IPublessRepository<>), typeof(EfPublessRepository<>));

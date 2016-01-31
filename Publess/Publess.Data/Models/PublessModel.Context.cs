@@ -12,13 +12,15 @@ namespace Publess.Data.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    using Publess.Core.Domain.Posts;
-    using Publess.Core.Domain.Users;
+    
     using System.Data.Entity.Core.EntityClient;
     using System.Reflection;
     using System.Data.Common;
     using System.Data.SqlClient;
+    
+    using Publess.Core.Domain.Posts;
+    using Publess.Core.Domain.Users;
+    
     public partial class PublessEntities : DbContext, IPublessDbContext
     {
         //public PublessEntities()
@@ -29,30 +31,31 @@ namespace Publess.Data.Models
     	public PublessEntities(string nameOrConnectionString)
                 :base(nameOrConnectionString:nameOrConnectionString)
         {
+    
         }
-
+    
         //public PublessEntities(string nameOrConnectionString,bool hasConnectionString)
         //{
         //    //new  PublessEntities(nameOrConnectionString);
-
+    
         //    Type type = typeof(PublessEntities);
         //    ConstructorInfo ctor = type.GetConstructor(new[] { typeof(string) });
-
+    
         //    var entityBuilder = new EntityConnectionStringBuilder();
-
+    
         //    // use your ADO.NET connection string
         //    entityBuilder.ProviderConnectionString = nameOrConnectionString;
-
+    
         //    entityBuilder.Provider = "System.Data.SqlClient";
-
+    
         //    // Set the Metadata location.
         //    entityBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
-
+    
         //    string conn = @"metadata=res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=Publess;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework&quot;";
-
+    
         //    ctor.Invoke(new object[] { conn });
         //}
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -62,25 +65,26 @@ namespace Publess.Data.Models
          {
              return base.Set<TEntity>();
          }
-        
-        public static PublessEntities Create(string connectionString)
-        {
-            SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder(connectionString);
-
-            EntityConnectionStringBuilder efBuilder = new EntityConnectionStringBuilder();
-            // Set the Metadata location.
-            efBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
-            efBuilder.Provider = "System.Data.SqlClient";
-            efBuilder.ProviderConnectionString = sqlBuilder.ConnectionString;
-
-            return new PublessEntities(efBuilder.ConnectionString);
-        }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //{
-        //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
-        //}
-
+    
+    	 public static PublessEntities Create(string connectionString)
+         {
+             SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder(connectionString);
+    
+             EntityConnectionStringBuilder efBuilder = new EntityConnectionStringBuilder();
+             // Set the Metadata location.
+             efBuilder.Metadata = @"res://*/Models.PublessModel.csdl|res://*/Models.PublessModel.ssdl|res://*/Models.PublessModel.msl";
+             efBuilder.Provider = "System.Data.SqlClient";
+             efBuilder.ProviderConnectionString = sqlBuilder.ConnectionString;
+    
+             return new PublessEntities(efBuilder.ConnectionString);
+         }
+    
+    	 
+         //protected override void OnConfiguring(DbContextOptionsBuilder options)
+         //{
+         //    options.UseSqlServer(Startup.Configuration.Get("Data:DefaultConnection:ConnectionString"));
+         //}
+    
         public virtual IDbSet<Post> Posts { get; set; }
         public virtual IDbSet<User> Users { get; set; }
     }
